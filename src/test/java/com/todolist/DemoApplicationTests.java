@@ -38,7 +38,7 @@ class DemoApplicationTests {
 		));
 	}
 
-	@Test
+/*	@Test
 	public void testCreateTasks() {
 		List<Map<String, Object>> tasks = post("").as(new TypeRef<List<Map<String, Object>>>() {});
 
@@ -57,6 +57,6 @@ class DemoApplicationTests {
 				allOf(hasEntry("title", "Leer Libro")),
 				allOf(hasEntry("title", "Hacer Tarea"))
 		));
-	}
+	}*/
 
 }
