@@ -2,7 +2,6 @@ package com.todolist.repositories;
 
 import com.todolist.domain.entities.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 /**

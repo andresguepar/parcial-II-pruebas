@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "tasks",schema = "public", indexes = @Index(columnList = "id"))
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
