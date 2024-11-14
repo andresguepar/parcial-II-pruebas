@@ -30,6 +30,9 @@ jobs:
       
       - name: RunTests
         run: mvn test 
-
+      - name: Notify Failure
+        if: failure()
+        run: echo "Test Failed please check"
+        
             echo "Desplegado"
       
