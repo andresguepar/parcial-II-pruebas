@@ -1,0 +1,41 @@
+name: CI for TDD and API REST Tests
+
+on:
+  push:
+    branches:
+      - master-backend
+  pull_request:
+    branches:
+      - master-backend
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'corretto'
+          cache: 'maven'
+            
+      - name: Build with Maven
+        run: mvn -B clean package -DskipTests
+      
+      - name: Start Spring Boot Application
+        run: |
+          nohup java -jar target/*.jar &
+          echo "Waiting for Spring Boot to start..."
+          attempts=0
+          
+          echo "Application is ready!"
+      
+      - name: RunTests
+        run: mvn test 
+
+            echo "Desplegado"
+      
