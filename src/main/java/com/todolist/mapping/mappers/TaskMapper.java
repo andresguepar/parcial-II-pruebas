@@ -19,7 +19,7 @@ public class TaskMapper {
                 source.getTitle()
            );
     }
-
+//++
     public static List<Task> mapFrom(List<TaskDto> source){
         return source.parallelStream()
                 .map(TaskMapper::mapFrom)

@@ -6,7 +6,6 @@ import com.todolist.mapping.mappers.TaskMapper;
 import com.todolist.repositories.TaskRepository;
 import com.todolist.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;

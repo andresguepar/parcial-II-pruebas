@@ -1,7 +1,6 @@
 package com.todolist;
 
 import com.todolist.mapping.dtos.TaskDto;
-import com.todolist.services.TaskService;
 import com.todolist.services.impl.TaskServiceImpl;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -12,13 +11,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
-import static org.hamcrest.Matchers.*;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
