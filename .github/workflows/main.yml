@@ -36,6 +36,6 @@ jobs:
         run: echo "Test Failed please check"
 
       - name: Deployed!!
-        if: succes()
+        if: success()
         run: echo "Desplegado"
       
