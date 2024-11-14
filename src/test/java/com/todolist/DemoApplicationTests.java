@@ -30,29 +30,33 @@ class DemoApplicationTests {
 	public void testGetTasks() {
 		List<Map<String, Object>> tasks = get("").as(new TypeRef<List<Map<String, Object>>>() {});
 
-		assertThat(tasks, hasSize(7));
+		assertThat(tasks, hasSize(2));
 
 		assertThat(tasks, containsInAnyOrder(
 				allOf(hasEntry("title", "Leer Libro")),
-				allOf(hasEntry("title", "Hacer Tarea")),
-				allOf(hasEntry("title", "Something")),
-				allOf(hasEntry("title", "Tas")),
-				allOf(hasEntry("title", "Estudiar ")),
-				allOf(hasEntry("title", "Hola")),
-				allOf(hasEntry("title", "Si"))
+				allOf(hasEntry("title", "Hacer Tarea"))
 		));
 	}
 
 	@Test
-	public void testCreateTask() {
-		Map<String, Object> newTask = Map.of("title", "Nueva Tarea");
-        Map<String, Object> createdTask = post("")
-                .as(new TypeRef<Map<String, Object>>() {})
-                .body(newTask);
+	public void testCreateTasks() {
+		List<Map<String, Object>> tasks = post("").as(new TypeRef<List<Map<String, Object>>>() {});
 
-        assertThat(createdTask, allOf(
-                hasEntry("title", "Nueva Tarea")
-        ));
+		assertThat(tasks, containsInAnyOrder(
+				allOf(hasEntry("title", "Cocinar"))
+		));
+	}
+
+	@Test
+	public void testUpdateTasks() {
+		List<Map<String, Object>> tasks = put("").as(new TypeRef<List<Map<String, Object>>>() {});
+
+		assertThat(tasks, hasSize(7));
+
+		assertThat(tasks, containsInAnyOrder(
+				allOf(hasEntry("title", "Leer Libro")),
+				allOf(hasEntry("title", "Hacer Tarea"))
+		));
 	}
 
 }
