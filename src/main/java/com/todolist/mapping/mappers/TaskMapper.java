@@ -22,15 +22,7 @@ public class TaskMapper {
 
     public static Task mapFrom(TaskDto source){
         return new Task(source.getId(),
-                source.getTitle(),
-                source.getDescription(),
-                source.getPriority(),
-                source.getCreationDate(),
-                source.getLimitDate(),
-                source.isCompleted(),
-                source.getCompletedDate(),
-                source.getRewardLevel()
-
+                source.getTitle()
            );
     }
 
