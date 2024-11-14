@@ -25,12 +25,6 @@ jobs:
             
       - name: Build with Maven
         run: mvn clean install
-      
-      - name: Start Spring Boot Application
-        run: |
-          nohup java -jar target/*.jar &
-          echo "Waiting for Spring Boot to start..."
-          attempts=0
           
           echo "Application is ready!"
       
