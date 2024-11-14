@@ -1,12 +1,12 @@
-name: CI for TDD and API REST Tests
+name: CI for API REST Tests
 
 on:
   push:
     branches:
-      - master-backend
+      - master
   pull_request:
     branches:
-      - master-backend
+      - master
 
 jobs:
   test:
