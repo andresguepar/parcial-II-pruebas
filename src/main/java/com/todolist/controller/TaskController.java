@@ -17,10 +17,6 @@ public class TaskController {
         this.service = service;
     }
 
-    @GetMapping
-    public ResponseEntity<List<TaskDto>> listTasks() {
-        return ResponseEntity.ok(service.list());
-    }
 
     @PostMapping
     public ResponseEntity<TaskDto> createTask(@RequestBody TaskDto taskDto) {

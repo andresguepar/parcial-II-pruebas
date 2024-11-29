@@ -11,12 +11,16 @@ public class TaskMapper {
         return TaskDto.builder()
                 .id(source.getId())
                 .title(source.getTitle())
+                .description(source.getDescription())
+                .status(source.isStatus())
                 .build();
     }
 
     public static Task mapFrom(TaskDto source){
         return new Task(source.getId(),
-                source.getTitle()
+                source.getTitle(),
+                source.getDescription(),
+                source.isStatus()
            );
     }
 //+++

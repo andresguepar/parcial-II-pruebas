@@ -25,22 +25,14 @@ public class TaskServiceImpl implements TaskService {
     }
 
 
-    @Override
-    @Cacheable("tasks")
-    public List<TaskDto> list() {
-        List<Task> Task = repository.findAll();
-        return TaskMapper.mapFromDto(Task);
-    }
 
     @Override
-    @Cacheable(key="#id")
     public TaskDto byId(int id) {
         Task Task = repository.findById(id).orElseThrow();
         return TaskMapper.mapFrom(Task);
     }
 
     @Override
-    @CachePut(key = "#t.id")
     public TaskDto save(TaskDto t) {
         if (t.getTitle() == null || t.getTitle().trim().isEmpty()) {
             throw new IllegalArgumentException("Task title cannot be null or empty");
@@ -52,17 +44,17 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    @CachePut(key = "#update.id")
     public void update(int id, TaskDto update) {
         Task task = repository.findById(id).orElseThrow();
         Task updated = TaskMapper.mapFrom(update);
 
         task.setTitle(updated.getTitle());
+        task.setDescription(updated.getDescription());
+        task.setStatus(updated.isStatus());
         repository.save(task);
     }
 
     @Override
-   @CacheEvict(key = "#id")
     public void delete(int id) {
         repository.deleteById(id);
     }
